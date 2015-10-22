@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -19,6 +20,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.mrli.cat.demo.view.DividerItemDecoration;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -107,6 +109,9 @@ public class MainActivity extends AppCompatActivity {
         mIndexRecycleView.setHasFixedSize(true);
         mIndexAdapter = new IndexAdapter();
         mIndexRecycleView.setAdapter(mIndexAdapter);
+        mIndexRecycleView.setItemAnimator(new DefaultItemAnimator());
+        mIndexRecycleView.addItemDecoration(new DividerItemDecoration(getApplicationContext(),
+                DividerItemDecoration.VERTICAL_LIST));
     }
 
     @Override

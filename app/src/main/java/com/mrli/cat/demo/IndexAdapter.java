@@ -70,9 +70,9 @@ public class IndexAdapter extends RecyclerView.Adapter<IndexAdapter.ViewHolder> 
 
     protected void buildMultiPic(final GridLayout gridLayout) {
         gridLayout.setVisibility(View.VISIBLE);
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 9; i++) {
             final SimpleDraweeView pic = (SimpleDraweeView) gridLayout.getChildAt(i);
-            Uri uri = Uri.parse("https://raw.githubusercontent.com/facebook/fresco/gh-pages/static/fresco-logo.png");
+            Uri uri = Uri.parse(Image.imageThumbUrls[(int)(Math.random() * Image.imageThumbUrls.length)]);
             pic.setImageURI(uri);
         }
     }
