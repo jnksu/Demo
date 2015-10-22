@@ -1,5 +1,7 @@
-package com.mrli.cat.demo;
+package com.mrli.cat.demo.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,16 +11,26 @@ import android.widget.GridLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.mrli.cat.demo.config.Image;
+import com.mrli.cat.demo.mode.ImageViewPageMessage;
+import com.mrli.cat.demo.ImageViewPagerActivity;
+import com.mrli.cat.demo.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.greenrobot.event.EventBus;
 
 /**
  * Created by MrLi on 2015/10/21.
  */
 public class IndexAdapter extends RecyclerView.Adapter<IndexAdapter.ViewHolder> {
+    private Context mContext;
+
+    //传递上下文环境, 初始化数据集
+    public IndexAdapter(Context context) {
+        this.mContext = context;
+    }
 
     //创建ViewHolder
     @Override
@@ -72,8 +84,18 @@ public class IndexAdapter extends RecyclerView.Adapter<IndexAdapter.ViewHolder> 
         gridLayout.setVisibility(View.VISIBLE);
         for (int i = 0; i < 9; i++) {
             final SimpleDraweeView pic = (SimpleDraweeView) gridLayout.getChildAt(i);
-            Uri uri = Uri.parse(Image.imageThumbUrls[(int)(Math.random() * Image.imageThumbUrls.length)]);
+            GenericDraweeHierarchy genericDraweeHierarchy = pic.getHierarchy();
+            Uri uri = Uri.parse(Image.imageThumbUrls[i]);
+            final ImageViewPageMessage message = new ImageViewPageMessage(Image.imageThumbUrls, i);
             pic.setImageURI(uri);
+            pic.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    EventBus.getDefault().postSticky(message);
+                    Intent intent = new Intent(mContext, ImageViewPagerActivity.class);
+                    mContext.startActivity(intent);
+                }
+            });
         }
     }
 }

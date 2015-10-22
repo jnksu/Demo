@@ -20,6 +20,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.mrli.cat.demo.adapter.IndexAdapter;
 import com.mrli.cat.demo.view.DividerItemDecoration;
 
 import butterknife.Bind;
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mIndexRecycleView.setLayoutManager(mLayoutManager);
         mIndexRecycleView.setHasFixedSize(true);
-        mIndexAdapter = new IndexAdapter();
+        mIndexAdapter = new IndexAdapter(this);
         mIndexRecycleView.setAdapter(mIndexAdapter);
         mIndexRecycleView.setItemAnimator(new DefaultItemAnimator());
         mIndexRecycleView.addItemDecoration(new DividerItemDecoration(getApplicationContext(),

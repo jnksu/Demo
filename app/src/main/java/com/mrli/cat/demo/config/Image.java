@@ -1,4 +1,4 @@
-package com.mrli.cat.demo;
+package com.mrli.cat.demo.config;
 
 public class Image {
 
