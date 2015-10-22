@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Demo</string>
+    <string name="navi_item_1">条目1</string>
+    <string name="navi_item_2">条目2</string>
+    <string name="navi_item_3">条目3</string>
+    <string name="action_search">搜索</string>
+    <string name="action_compose">关于</string>
+    <string name="index">首页</string>
+    <string name="navi_item_index">首页</string>
+    <string name="navi_item_found">发现</string>
+    <string name="navi_item_attention">关注</string>
+</resources>

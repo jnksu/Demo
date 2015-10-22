@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navi_item_index"
+            android:checked="true"
+            android:icon="@drawable/ic_menu_white_24dp"
+            android:title="@string/navi_item_index" />
+        <item
+            android:id="@+id/navi_item_found"
+            android:icon="@drawable/ic_explore_white_24dp"
+            android:title="@string/navi_item_found" />
+        <item
+            android:id="@+id/navi_item_attention"
+            android:icon="@drawable/ic_remove_red_eye_white_24dp"
+            android:title="@string/navi_item_attention" />
+    </group>
+</menu>

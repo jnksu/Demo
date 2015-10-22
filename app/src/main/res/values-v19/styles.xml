@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- Android4.4及以上透明状态栏 -->
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <!-- 导航抽屉文字排版 start -->
+    <style name="navi_drawer_nick_name">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="navi_drawer_description">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <!-- List item: Roboto Medium, 14sp, 87% #000000 -->
+    <style name="navi_drawer_list_item">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#87000000</item>
+    </style>
+    <!--Subheader: Roboto Medium, 14sp, 54% #000000. Aligns to the 16dp keyline.-->
+    <style name="navi_drawer_subHeader">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#54000000</item>
+    </style>
+    <!-- 导航抽屉文字排版 end -->
+
+</resources>
