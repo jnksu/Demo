@@ -4,18 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.mrli.cat.demo.config.Image;
-import com.mrli.cat.demo.mode.ImageViewPageMessage;
 import com.mrli.cat.demo.ImageViewPagerActivity;
 import com.mrli.cat.demo.R;
+import com.mrli.cat.demo.config.Image;
+import com.mrli.cat.demo.mode.ImageViewPageMessage;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -52,7 +54,7 @@ public class IndexAdapter extends RecyclerView.Adapter<IndexAdapter.ViewHolder> 
     //显示条目的数量
     @Override
     public int getItemCount() {
-        return 100;
+        return 10;
     }
 
 
@@ -82,20 +84,37 @@ public class IndexAdapter extends RecyclerView.Adapter<IndexAdapter.ViewHolder> 
 
     protected void buildMultiPic(final GridLayout gridLayout) {
         gridLayout.setVisibility(View.VISIBLE);
+        //获取当前屏幕尺寸
+        DisplayMetrics metrics = new DisplayMetrics();
+        WindowManager windowManager =
+                (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+        windowManager.getDefaultDisplay().getMetrics(metrics);
+        //设置图片的宽度和高度
+        int picWidth = metrics.widthPixels / 3 - 48;
+
         for (int i = 0; i < 9; i++) {
-            final SimpleDraweeView pic = (SimpleDraweeView) gridLayout.getChildAt(i);
-            GenericDraweeHierarchy genericDraweeHierarchy = pic.getHierarchy();
-            Uri uri = Uri.parse(Image.imageThumbUrls[i]);
-            final ImageViewPageMessage message = new ImageViewPageMessage(Image.imageThumbUrls, i);
-            pic.setImageURI(uri);
-            pic.setOnClickListener(new View.OnClickListener() {
+            //获取View
+            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) gridLayout.getChildAt(i);
+            //设置布局参数
+            GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
+            layoutParams.width = picWidth;
+            layoutParams.height = picWidth;
+            layoutParams.setMargins(8, 8, 8, 8);
+            simpleDraweeView.setLayoutParams(layoutParams);
+            //设置图片数据源
+            simpleDraweeView.setImageURI(Uri.parse(Image.imageThumbUrls[i]));
+            //准备传递数据
+            final ImageViewPageMessage imageViewPageMessage = new ImageViewPageMessage(
+                    Image.imageThumbUrls, i);
+            simpleDraweeView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    EventBus.getDefault().postSticky(message);
+                    EventBus.getDefault().postSticky(imageViewPageMessage);
                     Intent intent = new Intent(mContext, ImageViewPagerActivity.class);
                     mContext.startActivity(intent);
                 }
             });
         }
+
     }
 }

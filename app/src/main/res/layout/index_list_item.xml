@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/tools"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -57,63 +56,36 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:text="愿意和铁粉分享我的实战操作，但是真正帮我回复sb的不多超模身材，你值得拥有直击米兰达·可儿做瑜伽[心] 以下动作每天做上一个小时 模特身材也是你能拥有的，关注我，#一起健身# 吧。[给力][给力][给力]" />
-        <!-- 媒体 -->
+        <!-- 图片列表 -->
         <GridLayout
             android:id="@+id/index_list_item_content_pic_multi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
             android:clickable="false"
             android:columnCount="3"
             android:orientation="horizontal"
+            android:padding="16dp"
             android:rowCount="3"
             android:useDefaultMargins="false"
             android:visibility="gone">
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="2dp" />
+            <com.facebook.drawee.view.SimpleDraweeView />
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="2dp" />
+            <com.facebook.drawee.view.SimpleDraweeView />
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="2dp" />
+            <com.facebook.drawee.view.SimpleDraweeView />
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="2dp" />
+            <com.facebook.drawee.view.SimpleDraweeView />
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="2dp" />
+            <com.facebook.drawee.view.SimpleDraweeView />
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="2dp" />
+            <com.facebook.drawee.view.SimpleDraweeView />
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="2dp" />
+            <com.facebook.drawee.view.SimpleDraweeView />
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="2dp" />
+            <com.facebook.drawee.view.SimpleDraweeView />
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="2dp" />
+            <com.facebook.drawee.view.SimpleDraweeView />
         </GridLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>
